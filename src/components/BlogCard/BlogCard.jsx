@@ -1,3 +1,5 @@
+import formaDateToNow from '../../service/formatDateToNow';
+
 import {
   Card,
   CardHeader,
@@ -14,15 +16,7 @@ import {
   Date,
 } from './BlogCard.styled';
 
-export const BlogCard = ({
-  poster,
-  name,
-  posterAt,
-  tag,
-  title,
-  description,
-  avatar,
-}) => {
+export const BlogCard = ({ poster, name, postedAt, tag, title, description, avatar }) => {
   return (
     <Card>
       <CardHeader>
@@ -38,7 +32,7 @@ export const BlogCard = ({
           <Avatar src={avatar} alt={name} />
           <UserInfo>
             <UserName>{name}</UserName>
-            <Date>{posterAt}</Date>
+            <Date>{formaDateToNow(postedAt)} ago</Date>
           </UserInfo>
         </UserBox>
       </CardFooter>
